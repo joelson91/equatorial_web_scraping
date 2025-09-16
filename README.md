@@ -65,7 +65,7 @@ NASCIMENTO="01/02/2003"
 Com o ambiente virtual ativado e o arquivo `.env` configurado, basta executar o script principal:
 
 ```bash
-python seu_script.py
+python src/script.py
 ```
 
 As faturas serão baixadas automaticamente na pasta `faturas_equatorial`.
