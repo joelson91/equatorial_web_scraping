@@ -52,7 +52,7 @@ pip install -r requirements.txt
 
 **5. Configure suas credenciais:**
 
-Crie um arquivo chamado `.env` na raiz do projeto, seguindo o modelo do arquivo `.env.example`. Adicione suas informações pessoais a ele:
+Crie um arquivo chamado `.env` na raiz do projeto, seguindo o modelo abaixo. Adicione suas informações pessoais a ele:
 
 ```ini
 # .env
