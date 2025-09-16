@@ -2,7 +2,7 @@
 import os
 import logging
 from selenium import webdriver
-from selenium.webdriver.edge.options import Options
+from selenium.webdriver.chrome import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -29,13 +29,13 @@ DOWNLOAD_PATH = os.path.join(os.getcwd(), "faturas_equatorial")
 
 def configurar_driver():
     """
-    Configura e retorna uma instância do WebDriver do Edge com as opções
+    Configura e retorna uma instância do WebDriver com as opções
     necessárias para o download automático de PDFs.
     """
-    logging.info("Configurando o driver do Edge.")
+    logging.info("Configurando o driver.")
     os.makedirs(DOWNLOAD_PATH, exist_ok=True)
 
-    edge_options = Options()
+    options = Options()
 
     prefs = {
     "plugins.always_open_pdf_externally": True,
@@ -47,12 +47,12 @@ def configurar_driver():
     "download.directory_upgrade": True
     }
 
-    edge_options.add_experimental_option("prefs", prefs)
-    edge_options.add_argument("--disable-gpu")
-    edge_options.add_argument("--start-maximized")
-    edge_options.add_experimental_option("excludeSwitches", ["enable-logging"])
+    options.add_experimental_option("prefs", prefs)
+    options.add_argument("--disable-gpu")
+    options.add_argument("--start-maximized")
+    options.add_experimental_option("excludeSwitches", ["enable-logging"])
 
-    return webdriver.Edge(options=edge_options)
+    return webdriver.Chrome(options=options)
 
 
 def realizar_login(driver, wait):
